@@ -8,7 +8,6 @@ MAX_DAYS = 2147483647
 
 class Test(models.Model):
     _name = 'test.test'
-    # _description = 'test.test'
 
     name = fields.Char('Name')
     purpose = fields.Text('Purpose')
@@ -19,10 +18,7 @@ class Test(models.Model):
     def _min_days_to_start(self):
         self.ensure_one()
         days_list = [(test_session.start_date - date.today()).days for test_session in self.test_session]
-        if days_list:
-            return min(days_list)
-        else:
-            return MAX_DAYS
+        return min(days_list) if days_list else MAX_DAYS
 
     @api.depends('test_session')
     def _compute_min_days_to_start(self):

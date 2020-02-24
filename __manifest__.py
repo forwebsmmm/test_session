@@ -3,7 +3,8 @@
     'name': "Test",
 
     'summary': """
-        Test module""",
+        Test module
+    """,
 
     'description': """
         Test for partners
