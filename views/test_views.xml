@@ -1,0 +1,68 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="test_view_list">
+            <field name="name">test.view.list</field>
+            <field name="model">test.test</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="tester"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="test_view_form">
+            <field name="name">test.view.form</field>
+            <field name="model">test.test</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="purpose"/>
+                            <field name="tester"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Test Sessions">
+                            <field name="test_session" nolabel="1">
+                                <tree>
+                                    <field name="display_name"/>
+                                    <field name="end_date"/>
+                                    <field name="duration"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="test_session_view_list">
+            <field name="name">test.session.view.list</field>
+            <field name="model">test.session</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="test"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="test_session_view_form">
+            <field name="name">test.session.view.form</field>
+            <field name="model">test.session</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="test"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="duration"/>
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

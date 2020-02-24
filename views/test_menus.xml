@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+        <menuitem name="Test" id="test_menu" sequence="110"/>
+
+        <menuitem name="Tests" id="test_menu_tests"
+                  parent="test_menu"
+                  action="test_action_window"/>
+
+        <menuitem name="Test sessions" id="test_menu_test_session"
+                  parent="test_menu"
+                  action="test_sessions_action_window"/>
+
+        <menuitem id="test_menu_contacts"
+                  name="Tests up to 30 days"
+                  action="test_contacts_action_window"
+                  parent="contacts.menu_contacts"
+                  sequence="3"/>
+
+        <record model="ir.actions.act_window" id="test_action_window">
+            <field name="name">Tests</field>
+            <field name="res_model">test.test</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="test_sessions_action_window">
+            <field name="name">Test Session</field>
+            <field name="res_model">test.session</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.actions.act_window" id="test_contacts_action_window">
+            <field name="name">Test contacts</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{'search_default_test_near': 1}</field>
+        </record>
+
+    </data>
+</odoo>

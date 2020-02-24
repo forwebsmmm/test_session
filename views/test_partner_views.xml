@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+        <record id="test_view_partners_form" model="ir.ui.view">
+            <field name="name">test.view.res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field eval="100" name="priority"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='category_id']" position="after">
+                        <field name="is_tester" readonly="1"/>
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+        <record id="res_partner_view_search_inherit_test" model="ir.ui.view">
+            <field name="name">res.partner.view.search.inherit.test</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_res_partner_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="//filter[@name='inactive']" position="after">
+                    <filter string="Tests up to 30 days" name="test_near" domain="[('min_days_to_start','&lt;=',30)]"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
